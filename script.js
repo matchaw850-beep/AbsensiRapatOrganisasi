@@ -6,17 +6,15 @@ const tombol = document.getElementById("submitButton");
 const status = document.getElementById("formStatus");
 const form = document.getElementById("attendanceForm");
 
-let pin = prompt("Masukkan PIN absensi:");
+const pin = prompt("Masukkan PIN absensi:");
 
 if (pin === PIN_ABSENSI) {
     nama.disabled = false;
     jabatan.disabled = false;
     tombol.disabled = false;
-    status.textContent = "PIN benar. Silakan isi form absensi.";
+    status.textContent = "PIN benar. Silakan isi form.";
 } else {
-    nama.disabled = true;
-    jabatan.disabled = true;
-    tombol.disabled = true;
+    alert("PIN salah! Form tidak dapat dibuka.");
     status.textContent = "PIN salah. Muat ulang halaman untuk mencoba lagi.";
 }
 
@@ -24,7 +22,7 @@ form.addEventListener("submit", function(event) {
     event.preventDefault();
 
     if (pin !== PIN_ABSENSI) {
-        alert("PIN salah! Absensi tidak bisa dilakukan.");
+        alert("PIN salah!");
         return;
     }
 
