@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Absensi Rapat</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="browser">
+    <div class="browser-bar">
+      <span class="circle"></span><span class="circle"></span><span class="circle"></span>
+      <div class="address">absensi-rapat.html</div>
+    </div>
+
+    <section class="content">
+      <div class="agenda">
+        <h3>Agenda Rapat Hari Ini</h3>
+        <table>
+          <thead>
+            <tr><th>Sesi</th><th>Topik</th><th>Waktu</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Pembukaan</td><td>09.00</td></tr>
+            <tr><td>2</td><td>Evaluasi Program</td><td>09.30</td></tr>
+            <tr><td>3</td><td>Rencana Event</td><td>10.30</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pin-area">
+        <div class="pin-title">SAAT HALAMAN DIBUKA</div>
+        <div class="pin-card">
+          <div class="pin-top"><span>Halaman ini menyatakan</span><b>prompt()</b></div>
+          <strong>Masukkan kode PIN absensi:</strong>
+          <div class="fake-input">••••</div>
+          <div class="dialog-buttons"><span>Batal</span><b>OK</b></div>
+        </div>
+      </div>
+
+      <div class="annotation display-note">display: block</div>
+
+      <form id="attendanceForm" class="attendance-form">
+        <h3>Form Absensi</h3>
+        <label for="nama">Nama</label>
+        <input id="nama" type="text" placeholder="Fajar Nugraha" required>
+        <label for="jabatan">Jabatan</label>
+        <select id="jabatan">
+          <option>Sekretaris</option>
+          <option>Ketua</option>
+          <option>Wakil Ketua</option>
+          <option>Bendahara</option>
+          <option>Anggota</option>
+        </select>
+        <button id="submitButton" type="submit">Kirim Absensi</button>
+        <p id="message"></p>
+      </form>
+
+      <div class="annotation margin-left">margin: auto</div>
+      <div class="annotation margin-right">margin: auto</div>
+      <div class="annotation confirm-note">confirm()</div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
