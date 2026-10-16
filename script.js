@@ -6,32 +6,32 @@ const tombol = document.getElementById("submitButton");
 const status = document.getElementById("formStatus");
 const form = document.getElementById("attendanceForm");
 
-// Meminta PIN saat halaman dibuka
-let pin = prompt("Masukkan PIN absensi:");
-let pinBenar = pin === PIN_ABSENSI;
+const pin = prompt("Masukkan PIN absensi:");
 
-// Membuka form jika PIN benar
-if (pinBenar) {
+if (pin === PIN_ABSENSI) {
     nama.disabled = false;
     jabatan.disabled = false;
     tombol.disabled = false;
-
-    status.textContent = "PIN benar. Silakan isi form absensi.";
+    status.textContent = "PIN benar. Silakan isi form.";
 } else {
-    status.textContent = "PIN salah. Silakan muat ulang halaman.";
+    alert("PIN salah! Form tidak dapat dibuka.");
+    status.textContent = "PIN salah. Muat ulang halaman untuk mencoba lagi.";
 }
 
-// Proses ketika tombol absensi diklik
 form.addEventListener("submit", function(event) {
     event.preventDefault();
 
-    if (nama.value === "" || jabatan.value === "") {
-        alert("Nama dan jabatan harus diisi!");
-    } else {
-        alert("Absensi berhasil dikirim!");
-
-        status.textContent = "Absensi berhasil dicatat.";
-        form.reset();
+    if (pin !== PIN_ABSENSI) {
+        alert("PIN salah!");
+        return;
     }
-});
 
+    if (nama.value.trim() === "" || jabatan.value === "") {
+        alert("Nama dan jabatan harus diisi!");
+        return;
+    }
+
+    alert("Absensi berhasil dikirim!");
+    status.textContent = "Absensi berhasil dicatat.";
+    form.reset();
+});
