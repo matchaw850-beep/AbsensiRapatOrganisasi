@@ -1,5 +1,3 @@
-// PIN contoh. Ubah angka ini jika rapat memakai PIN lain.
-
 const PIN_ABSENSI = "1234";
 
 const nama = document.getElementById("nama");
@@ -8,31 +6,34 @@ const tombol = document.getElementById("submitButton");
 const status = document.getElementById("formStatus");
 const form = document.getElementById("attendanceForm");
 
-// Meminta PIN saat halaman dibuka
 let pin = prompt("Masukkan PIN absensi:");
-let pinBenar = pin === PIN_ABSENSI;
 
-// Membuka form jika PIN benar
-if (pinBenar) {
+if (pin === PIN_ABSENSI) {
     nama.disabled = false;
     jabatan.disabled = false;
     tombol.disabled = false;
-
     status.textContent = "PIN benar. Silakan isi form absensi.";
 } else {
-    status.textContent = "PIN salah. Silakan muat ulang halaman.";
+    nama.disabled = true;
+    jabatan.disabled = true;
+    tombol.disabled = true;
+    status.textContent = "PIN salah. Muat ulang halaman untuk mencoba lagi.";
 }
 
-// Proses ketika tombol absensi diklik
 form.addEventListener("submit", function(event) {
     event.preventDefault();
 
-    if (nama.value === "" || jabatan.value === "") {
-        alert("Nama dan jabatan harus diisi!");
-    } else {
-        alert("Absensi berhasil dikirim!");
-
-        status.textContent = "Absensi berhasil dicatat.";
-        form.reset();
+    if (pin !== PIN_ABSENSI) {
+        alert("PIN salah! Absensi tidak bisa dilakukan.");
+        return;
     }
+
+    if (nama.value.trim() === "" || jabatan.value === "") {
+        alert("Nama dan jabatan harus diisi!");
+        return;
+    }
+
+    alert("Absensi berhasil dikirim!");
+    status.textContent = "Absensi berhasil dicatat.";
+    form.reset();
 });
