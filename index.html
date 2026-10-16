@@ -46,19 +46,28 @@
       <div class="form-card">
         <div class="form-card-heading"><span class="form-icon">✓</span><div><h3>Form Absensi</h3><p>Absensi anggota rapat</p></div><span class="secure-label">PIN</span></div>
         <form id="attendanceForm">
-          <label for="nama">Nama lengkap</label>
-          <input id="nama" type="text" placeholder="Contoh: Fajar Nugraha" required disabled>
-          <label for="jabatan">Jabatan organisasi</label>
-          <select id="jabatan" required disabled>
-            <option value="">Pilih jabatan</option>
-            <option>Sekretaris</option>
-            <option>Ketua</option>
-            <option>Wakil Ketua</option>
-            <option>Bendahara</option>
-            <option>Anggota</option>
-          </select>
-          <button id="submitButton" class="primary-button submit-button" type="submit" disabled>Kirim Absensi <span>→</span></button>
-          <p class="form-status" id="formStatus">Masukkan PIN saat halaman dibuka untuk mengaktifkan form.</p>
+          
+<form id="attendanceForm">
+    <label for="nama">Nama lengkap</label>
+    <input id="nama" type="text" placeholder="Contoh: Fajar Nugraha" required>
+
+    <label for="jabatan">Jabatan organisasi</label>
+    <select id="jabatan" required>
+        <option value="">Pilih jabatan</option>
+        <option>Sekretaris</option>
+        <option>Ketua</option>
+        <option>Wakil Ketua</option>
+        <option>Bendahara</option>
+        <option>Anggota</option>
+    </select>
+
+    <button id="submitButton" class="primary-button submit-button" type="submit">
+        Kirim Absensi <span>→</span>
+    </button>
+
+    <p class="form-status" id="formStatus">
+        Silakan isi data kehadiran kamu.
+    </p>
         </form>
         <div class="form-bottom"><span>● Data kehadiran</span><span>Rapat organisasi</span></div>
       </div>
