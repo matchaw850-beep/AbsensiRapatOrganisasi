@@ -1,48 +1,38 @@
 // PIN contoh. Ubah angka ini jika rapat memakai PIN lain.
+
 const PIN_ABSENSI = "1234";
 
-const namaInput = document.getElementById("nama");
-const jabatanInput = document.getElementById("jabatan");
-const submitButton = document.getElementById("submitButton");
-const formStatus = document.getElementById("formStatus");
-const attendanceForm = document.getElementById("attendanceForm");
+const nama = document.getElementById("nama");
+const jabatan = document.getElementById("jabatan");
+const tombol = document.getElementById("submitButton");
+const status = document.getElementById("formStatus");
+const form = document.getElementById("attendanceForm");
 
-const todayDate = document.getElementById("todayDate");
+// Meminta PIN saat halaman dibuka
+let pin = prompt("Masukkan PIN absensi:");
+let pinBenar = pin === PIN_ABSENSI;
 
-if (todayDate) {
-  const now = new Date();
-  todayDate.textContent = now.toLocaleDateString("id-ID", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric"
-  }).toUpperCase();
-}
-
-// Minta PIN ketika halaman dibuka.
-const pin = prompt("Masukkan kode PIN absensi:");
-const pinBenar = pin === PIN_ABSENSI;
-
+// Membuka form jika PIN benar
 if (pinBenar) {
-  namaInput.disabled = false;
-  jabatanInput.disabled = false;
-  submitButton.disabled = false;
-  formStatus.textContent = "PIN benar. Silakan isi data kehadiran kamu.";
+    nama.disabled = false;
+    jabatan.disabled = false;
+    tombol.disabled = false;
+
+    status.textContent = "PIN benar. Silakan isi form absensi.";
 } else {
-  formStatus.textContent = "PIN salah atau dibatalkan. Muat ulang halaman untuk mencoba lagi.";
+    status.textContent = "PIN salah. Silakan muat ulang halaman.";
 }
 
-attendanceForm.addEventListener("submit", function(event) {
-  event.preventDefault();
+// Proses ketika tombol absensi diklik
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
 
-  if (!pinBenar) {
-    alert("PIN salah. Form absensi tidak dapat digunakan.");
-    return;
-  }
+    if (nama.value === "" || jabatan.value === "") {
+        alert("Nama dan jabatan harus diisi!");
+    } else {
+        alert("Absensi berhasil dikirim!");
 
-  const nama = namaInput.value.trim();
-  const jabatan = jabatanInput.value;
-
-  if (nama === "" || jabatan === "") {
-    alert("Lengkapi nama dan jabatan terlebih dahulu.");
-    return;
-  } 
+        status.textContent = "Absensi berhasil dicatat.";
+        form.reset();
+    }
+});
