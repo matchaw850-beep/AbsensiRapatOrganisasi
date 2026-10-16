@@ -14,8 +14,8 @@ if (pin === PIN_ABSENSI) {
     tombol.disabled = false;
     status.textContent = "PIN benar. Silakan isi form.";
 } else {
-    alert("PIN salah! Halaman akan dimuat ulang.");
-    window.location.reload();
+    alert("PIN salah! Form tidak dapat digunakan.");
+    status.textContent = "PIN salah. Muat ulang halaman untuk mencoba lagi.";
 }
 
 form.addEventListener("submit", function(event) {
@@ -30,8 +30,3 @@ form.addEventListener("submit", function(event) {
         alert("Nama dan jabatan harus diisi!");
         return;
     }
-
-    alert("Absensi berhasil dikirim!");
-    status.textContent = "Absensi berhasil dicatat.";
-    form.reset();
-});
