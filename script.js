@@ -14,8 +14,8 @@ if (pin === PIN_ABSENSI) {
     tombol.disabled = false;
     status.textContent = "PIN benar. Silakan isi form.";
 } else {
-    alert("PIN salah! Form tidak dapat dibuka.");
-    status.textContent = "PIN salah. Muat ulang halaman untuk mencoba lagi.";
+    alert("PIN salah! Halaman akan dimuat ulang.");
+    window.location.reload();
 }
 
 form.addEventListener("submit", function(event) {
