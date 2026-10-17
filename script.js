@@ -21,6 +21,12 @@ if (pin === PIN_ABSENSI) {
 form.addEventListener("submit", function(event) {
     event.preventDefault();
 
+    
+    if (pin !== PIN_ABSENSI) {
+        alert("PIN salah!");
+        return;
+    }
+    
     if (nama.value.trim() === "" || jabatan.value === "") {
         alert("Nama dan jabatan harus diisi!");
         return;
