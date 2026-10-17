@@ -28,6 +28,6 @@ form.addEventListener("submit", function(event) {
     }
 
     alert("Absensi berhasil dikirim!");
-    status.textContent = "Absensi berhasil dicatat.";
+    status.textContent = "Absensi berhasil dikirim.";
     form.reset();
 });
